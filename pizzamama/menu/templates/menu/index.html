@@ -1,0 +1,32 @@
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Menu - PizzaMama</title>
+        <link rel="stylesheet" href="{% static 'menu/style.css' %}">
+    </head>
+
+    <body>
+        <a href="{% url 'main:firstpage' %}">
+            <img id="small-logo" src="{% static 'menu/images/small_logo.png' %}" alt="small_logo">
+        </a>
+
+        <div class="menu-title">
+            <h1>Liste des pizzas</h1>
+        </div>
+        
+        <div class="menu-list">
+            {% for pizza in pizzas %}
+                <div class="menu-list-items">
+                    <span class="menu-list-title">{{ pizza.name }}</span> 
+                    <span class="menu-list-number">{{ pizza.price | floatformat:2}}€</span>
+                    <span class="menu-list-text">{{ pizza.ingredients }}</span>
+                    {% if pizza.vegan %}
+                        <span class="menu-list-bool">VÉGÉTARIENNE</span>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </body>
+</html>

@@ -1,0 +1,14 @@
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Acceuil - PizzaMama</title>
+        <link rel="stylesheet" href="{% static 'firstpage/style.css' %}">
+    </head>
+    <body>
+        <div class="main-logo">
+            <img src="{% static 'firstpage/images/main_logo.png' %}" alt="main_logo">
+            <a href="{% url 'menu:index' %}">Voir le menu</a>
+        </div>
+    </body>
+</html>
